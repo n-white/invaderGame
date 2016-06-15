@@ -1,25 +1,28 @@
-var Laser = function (left, bottom) {
+var Laser = function (left, bottom, top) {
   this.left = left;
   this.bottom = bottom;
+  this.top = top;
   this.$laserNode = $('<div class="laser"></div>');
-  this.setPosition(this.left, this.bottom);
-  this.move();
+  this.setPosition(this.left, this.bottom, this.top);
 };
 
-Laser.prototype.setPosition = function (left, bottom) {
+Laser.prototype.setPosition = function (left, bottom, top) {
+  // console.log(left, bottom, top);
   this.left = left;
   this.bottom = bottom;
+  this.top = top;
 
   var styleSettings = {
     left: left,
-    bottom: bottom
+    bottom: bottom,
+    top: top
   };
 
   this.$laserNode.css(styleSettings);
 
 };
 
-Laser.prototype.move = function () {
+Laser.prototype.shootUp = function () {
   var thisElem = this;
   var intervalId = setInterval(function () {
     thisElem.setPosition(thisElem.left, thisElem.bottom + 10);
@@ -41,4 +44,29 @@ Laser.prototype.move = function () {
       })
     }
   }, 10);
+};
+
+Laser.prototype.shootDown = function () {
+  var thisElem = this;
+  var $spaceship = $('.spaceship');
+  this.left += 30;
+  var intervalId = setInterval(function () {
+    // console.log(thisElem.top);
+    thisElem.setPosition(thisElem.left, undefined, thisElem.top + 5);
+    if (thisElem.top === 1000) {
+      clearInterval(intervalId);
+      thisElem.$laserNode.remove();
+    } else {
+      // check spaceship position
+      var laserPosition = thisElem.$laserNode.position();
+      var shipPosition = $spaceship.position();
+
+      if (laserPosition.top > shipPosition.top 
+          && laserPosition.left >= shipPosition.left 
+          && laserPosition.left < shipPosition.left + $spaceship.width()) {
+
+      }
+
+    }
+  }, 20);
 };

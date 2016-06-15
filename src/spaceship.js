@@ -4,6 +4,7 @@ var Spaceship = function(left) {
   this.$node = $('<div class="spaceship"><div class="cannon"></div></div>');
   this.move();
   this.setPosition(left);
+  this.health = 3;
 
 }
 
@@ -33,4 +34,9 @@ Spaceship.prototype.move = function () {
     }
 
   });
+}
+
+Spaceship.prototype.hit = function () {
+  this.health--;
+  console.log(this.health);
 }

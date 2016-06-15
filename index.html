@@ -15,9 +15,10 @@
 
     var $spaceship = new Spaceship(200);
     var spaceshipTop = $spaceship.$node.offset().top;
-    debugger;
     var topOffset = 100;
     var leftOffset = 0;
+
+    window.$spaceship = $spaceship;
 
     for (var i = 0; i < numberOfInvaders; i++) {
       if (i === 10) {
@@ -43,6 +44,7 @@
       if (event.which === 32) {
         var $laser = new Laser($spaceship.left + 72, 120);
         $(this).append($laser.$laserNode);
+        $laser.shootUp();
       }
     });  
 

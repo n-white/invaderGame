@@ -50,10 +50,11 @@ Laser.prototype.shootDown = function () {
   var thisElem = this;
   var $spaceship = $('.spaceship');
   this.left += 30;
+  var isHit = false
   var intervalId = setInterval(function () {
     // console.log(thisElem.top);
     thisElem.setPosition(thisElem.left, undefined, thisElem.top + 5);
-    if (thisElem.top === 1000) {
+    if (thisElem.top === 1000 || isHit) {
       clearInterval(intervalId);
       thisElem.$laserNode.remove();
     } else {
@@ -64,7 +65,8 @@ Laser.prototype.shootDown = function () {
       if (laserPosition.top > shipPosition.top 
           && laserPosition.left >= shipPosition.left 
           && laserPosition.left < shipPosition.left + $spaceship.width()) {
-
+          isHit = true;
+          window.$spaceship.hit();
       }
 
     }

@@ -37,11 +37,15 @@ body {
   position: fixed;
   height: 70px;
   width: 70px;
+  overflow: hidden;
+  z-index: 100;
 }
 
-.deadInvader {
+.deadInvader, .deadSpaceship {
   animation: .25s ease EXPLODE forwards;
 }
+
+
 
 @keyframes EXPLODE {
   to {

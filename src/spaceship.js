@@ -39,4 +39,8 @@ Spaceship.prototype.move = function () {
 Spaceship.prototype.hit = function () {
   this.health--;
   console.log(this.health);
+  if(this.health <= 0) {
+    this.$node.addClass('deadSpaceship')
+    // this.$node.delay(500).remove();
+  }
 }

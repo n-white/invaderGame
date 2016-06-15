@@ -62,7 +62,7 @@ Laser.prototype.shootDown = function () {
       var laserPosition = thisElem.$laserNode.position();
       var shipPosition = $spaceship.position();
 
-      if (laserPosition.top > shipPosition.top && laserPosition.top < shipPosition.top + $spaceship.heigh()
+      if (laserPosition.top > shipPosition.top && laserPosition.top < shipPosition.top + $spaceship.height()
           && laserPosition.left >= shipPosition.left 
           && laserPosition.left < shipPosition.left + $spaceship.width()) {
           isHit = true;

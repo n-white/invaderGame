@@ -5,6 +5,8 @@
   <title>Space Invader</title>  
 </head>
 <body>
+  <h1 class="message"></h1>
+
   <script src="lib/jquery.js"></script>
   <script src="src/spaceship.js"></script>
   <script src="src/laser.js"></script>
@@ -30,6 +32,11 @@
         topOffset += 80;
         leftOffset = 0;
       }
+      if (i === 30) {
+        topOffset += 80;
+        leftOffset = 0;
+      }
+
       leftOffset += 100;
       window.invaders.push(new Invader(leftOffset, topOffset));        
     };

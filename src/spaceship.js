@@ -41,6 +41,6 @@ Spaceship.prototype.hit = function () {
   console.log(this.health);
   if(this.health <= 0) {
     this.$node.addClass('deadSpaceship')
-    // this.$node.delay(500).remove();
+    $('.message').text('YOU LOSE!');
   }
 }

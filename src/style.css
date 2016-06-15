@@ -3,8 +3,8 @@ body {
 }
 
 .spaceship {
-  height: 50px;
-  width: 150px;
+  height: 30px;
+  width: 100px;
   background: white;
   position: fixed;
   bottom: 100px;
@@ -16,7 +16,7 @@ body {
   background: white;
   position: absolute;
   top: -20px;
-  left: 65px;
+  left: 40px;
   height: 20px;
   width: 20px;
 }
@@ -45,6 +45,15 @@ body {
   animation: .25s ease EXPLODE forwards;
 }
 
+.message {
+  width: 100%;
+  margin-top: 400px;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  z-index: 1000;
+  font-family: "Courier New";
+}
 
 
 @keyframes EXPLODE {

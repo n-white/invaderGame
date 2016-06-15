@@ -25,13 +25,18 @@ Invader.prototype.die = function () {
 
   this.$node.addClass('deadInvader');
   window.numberOfInvaders--;
+  clearInterval(this._intervalId);
+
+  if (window.numberOfInvaders === 0) {
+    $('.message').text('YOU WIN!');
+  }
 
 }
 
 Invader.prototype.shoot = function () {
 
   var thisElem = this;
-  setInterval(function () {
+  this._intervalId = setInterval(function () {
     var shinyNewLaser = new Laser(thisElem.left, undefined, thisElem.top);
     $('body').append(shinyNewLaser.$laserNode);
     shinyNewLaser.shootDown();

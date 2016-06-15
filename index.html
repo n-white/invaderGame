@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="src/style.css">
+  <title>Space Invader</title>  
+</head>
+<body>
+  <script src="lib/jquery.js"></script>
+  <script src="src/spaceship.js"></script>
+  <script src="src/laser.js"></script>
+  <script src="src/invader.js"></script>
+  <script>
+
+    var $spaceship = new Spaceship(200);
+    var spaceshipTop = $spaceship.$node.offset().top;
+
+    window.invaders = [];
+
+    for (var i = 0; i < 10; i++) {
+      window.invaders.push(new Invader((i*100) + 50, 100));
+    };
+
+    window.invaders.forEach(function(item) {
+      $('body').append(item.$node);
+    });
+
+    $('body').append($spaceship.$node);  
+
+    $('body').keydown(function (event) {
+      if (event.which === 32) {
+        var $laser = new Laser($spaceship.left + 72, 120);
+        $(this).append($laser.$laserNode);
+      }
+    });  
+
+  </script>
+</body>
+</html>

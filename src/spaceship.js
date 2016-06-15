@@ -37,8 +37,10 @@ Spaceship.prototype.move = function () {
 }
 
 Spaceship.prototype.hit = function () {
-  this.health--;
-  console.log(this.health);
+  if (this.health > 0) {
+    this.health--
+  }
+  $('.health').text('Health: ' + this.health)
   if(this.health <= 0) {
     this.$node.addClass('deadSpaceship')
     $('.message').text('YOU LOSE!');

@@ -26,6 +26,8 @@ Invader.prototype.die = function () {
   this.$node.addClass('deadInvader');
   window.numberOfInvaders--;
   clearInterval(this._intervalId);
+  window.score++;
+  $('.score').text('Score: ' + window.score);
 
   if (window.numberOfInvaders === 0) {
     $('.message').text('YOU WIN!');

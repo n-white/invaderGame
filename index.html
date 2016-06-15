@@ -6,14 +6,17 @@
 </head>
 <body>
   <h1 class="message"></h1>
+  <h1 class="health">Health: 3</h1>
+  <h1 class="score">Score: 0</h1>
 
   <script src="lib/jquery.js"></script>
   <script src="src/spaceship.js"></script>
   <script src="src/laser.js"></script>
   <script src="src/invader.js"></script>
   <script>
-    window.numberOfInvaders = 20
+    window.numberOfInvaders = 30;
     window.invaders = [];
+    window.score = 0;
 
     var $spaceship = new Spaceship(200);
     var spaceshipTop = $spaceship.$node.offset().top;

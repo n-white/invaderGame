@@ -55,6 +55,23 @@ body {
   font-family: "Courier New";
 }
 
+.health {
+  font-size: 30px;
+  position: fixed;
+  top: 10px;
+  left: 100px;
+  color: white;
+  font-family: "Courier New";  
+}
+
+.score {
+  font-size: 30px;
+  position: fixed;
+  top: 10px;
+  left: 920px;
+  color: white;
+  font-family: "Courier New";  
+}
 
 @keyframes EXPLODE {
   to {

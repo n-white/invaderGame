@@ -9,7 +9,7 @@ var Invader = function (left, top) {
 
 
 Invader.prototype.setPosition = function(left, top) {
-  console.log("set setPosition", this);
+  console.log("setPosition", left, top);
   this.left = left;
   this.top = top;
 
@@ -19,4 +19,11 @@ Invader.prototype.setPosition = function(left, top) {
   };
 
   this.$node.css(styleSettings);
+}
+
+Invader.prototype.die = function () {
+
+  this.$node.addClass('deadInvader');
+  window.numberOfInvaders--;
+
 }

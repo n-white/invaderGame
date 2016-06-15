@@ -22,16 +22,22 @@ Laser.prototype.setPosition = function (left, bottom) {
 Laser.prototype.move = function () {
   var thisElem = this;
   var intervalId = setInterval(function () {
-    thisElem.setPosition(thisElem.left, thisElem.bottom + 2);
-    if (thisElem.bottom === 800) {
+    thisElem.setPosition(thisElem.left, thisElem.bottom + 10);
+    if (thisElem.bottom === 1000) {
       clearInterval(intervalId);
       thisElem.$laserNode.remove();
     } else {
       // check invaders position
-      console.log('laserPosition: ', thisElem.$laserNode.position());
+      var laserPosition = thisElem.$laserNode.position();
 
       window.invaders.forEach(function (invader, index) {
-        console.log('index: ' + index, invader.$node.width());
+        if (laserPosition.top <= invader.top + 70 - invader.$node.height() 
+            && laserPosition.left >= invader.left 
+            && laserPosition.left <= invader.left + invader.$node.width()) {
+          thisElem.$laserNode.remove();
+          invader.die();
+          window.invaders.splice(index, 1);
+        }
       })
     }
   }, 10);

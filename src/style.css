@@ -29,9 +29,23 @@ body {
   z-index: 10;
 }
 
+.hidden {
+  display: none;
+}
+
 .invader {
   position: fixed;
   height: 70px;
   width: 70px;
+}
 
+.deadInvader {
+  animation: .25s ease EXPLODE forwards;
+}
+
+@keyframes EXPLODE {
+  to {
+    opacity: 0;
+    transform: scale(1.5) rotateZ(360deg);
+  }  
 }

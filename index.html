@@ -10,14 +10,27 @@
   <script src="src/laser.js"></script>
   <script src="src/invader.js"></script>
   <script>
+    window.numberOfInvaders = 20
+    window.invaders = [];
 
     var $spaceship = new Spaceship(200);
     var spaceshipTop = $spaceship.$node.offset().top;
+    debugger;
+    var topOffset = 100;
+    var leftOffset = 0;
 
-    window.invaders = [];
+    for (var i = 0; i < numberOfInvaders; i++) {
+      if (i === 10) {
+        topOffset += 80;
+        leftOffset = 0;
 
-    for (var i = 0; i < 10; i++) {
-      window.invaders.push(new Invader((i*100) + 50, 100));
+      }
+      if (i === 20) {
+        topOffset += 80;
+        leftOffset = 0;
+      }
+      leftOffset += 100;
+      window.invaders.push(new Invader(leftOffset, topOffset));        
     };
 
     window.invaders.forEach(function(item) {
